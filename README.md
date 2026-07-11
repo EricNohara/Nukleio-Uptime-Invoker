@@ -1,4 +1,4 @@
-# Portfolio-Manager-Supabase-Trigger
+# Nukleio-Uptime-Trigger
 
 ## Author: Eric Nohara-LeClair
 
