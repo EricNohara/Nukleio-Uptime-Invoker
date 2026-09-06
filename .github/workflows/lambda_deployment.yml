@@ -20,7 +20,7 @@ jobs:
         uses: imehedi/actions-awscli-v2@latest
         with:
           args: "lambda update-function-code \
-            --function-name arn:aws:lambda:us-east-2:044445073404:function:NukleioSupabaseUptimeInvoker \
+            --function-name arn:aws:lambda:us-east-2:044445073404:function:Nukleio-Supabase-Uptime-Invoker \
             --zip-file fileb://code.zip"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

@@ -34,7 +34,7 @@ AWS Lambda functions and EventBridge rules cannot be renamed. Replace the old
 resources instead of modifying their names:
 
 - Old Lambda: `PortfolioManagerSupabaseTimerTrigger`
-- New Lambda: `NukleioSupabaseUptimeInvoker`
+- New Lambda: `Nukleio-Supabase-Uptime-Invoker`
 - Old EventBridge rule: `PortfolioManagerSupabaseUptimeTrigger`
 - Recommended new EventBridge rule: `NukleioSupabaseUptimeInvokerSchedule`
 
@@ -42,7 +42,7 @@ resources instead of modifying their names:
    its Python runtime, architecture, execution role, memory, timeout, and any
    other settings. Also open its EventBridge trigger and record the exact
    schedule expression.
-2. Create `NukleioSupabaseUptimeInvoker` in `us-east-2`, selecting the same
+2. Create `Nukleio-Supabase-Uptime-Invoker` in `us-east-2`, selecting the same
    Python runtime, architecture, and existing execution role as the old Lambda.
    Set the handler to `lambda_function.lambda_handler`, then copy the old
    memory, timeout, and other configuration values exactly.
@@ -50,10 +50,10 @@ resources instead of modifying their names:
    six variables listed above with their environment-specific values.
 4. In Amazon EventBridge, create the scheduled rule
    `NukleioSupabaseUptimeInvokerSchedule`. Copy the old rule's exact schedule,
-   choose `NukleioSupabaseUptimeInvoker` as the target, and allow EventBridge
+   choose `Nukleio-Supabase-Uptime-Invoker` as the target, and allow EventBridge
    to invoke it.
 5. Push this repository's changes to `main`. The GitHub Actions workflow will
-   deploy the Lambda package to `NukleioSupabaseUptimeInvoker`.
+   deploy the Lambda package to `Nukleio-Supabase-Uptime-Invoker`.
 6. Run a Lambda test invocation. Confirm both `prod` and `dev` entries show
    `success: true` and a successful status code. Then wait for one scheduled
    invocation and confirm it in CloudWatch logs.
@@ -64,6 +64,6 @@ resources instead of modifying their names:
 ## Deployment
 
 Pushing to `main` installs `requests`, packages `src/`, and deploys the code to
-`NukleioSupabaseUptimeInvoker` in `us-east-2`. The GitHub Actions secrets
+`Nukleio-Supabase-Uptime-Invoker` in `us-east-2`. The GitHub Actions secrets
 `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` must retain permission to update
 that replacement Lambda function.
